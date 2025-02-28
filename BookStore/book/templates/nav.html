@@ -1,0 +1,13 @@
+<nav>
+    <div>
+        <a href="/" class="btn btn-outline-dark">Home</a> 
+        <a href="" class="btn btn-outline-dark">About</a> 
+        <a href="{% url 'addbook' %}" class="btn btn-outline-dark">Add Book</a>
+    </div>
+    <div>
+        <form action="{% url 'home' %}">
+            <input type="text" name="q">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</nav>

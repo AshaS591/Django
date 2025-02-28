@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+    <center><h1 style="color: navy;">Books Available</h1></center>
+    <div class="container">
+        {% for book in all_books %}
+        <div class="container1 px-4 text-center">
+            <h4>{{book.title}}</h4>
+            <i>{{book.authour}}</i><br>
+            <strong><b>₹{{book.price}}</b></strong><br>
+            <a href="{% url 'edit' book.id %}" class="btn btn-outline-dark">Edit Book</a>
+            <a href="{% url 'delete' book.id %}" class="btn btn-outline-dark">Delete Book</a>
+
+        </div>
+        {% endfor %}
+    </div>
+    
+
+{% endblock content %}

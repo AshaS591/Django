@@ -1,0 +1,51 @@
+<div class="container mt-5" style="width: 70%;">
+    <h1 class="text-center">{{ operation }}</h1>
+    <form method="POST" action="" enctype="multipart/form-data" class="mt-4">
+        {% csrf_token %}
+        
+        <!-- Title -->
+        <div class="mb-3">
+            <label for="title" class="form-label">Book Title</label>
+            <input type="text" value="{{ book.title }}" class="form-control" id="title" name="title" required="">
+        </div>
+
+        <!-- Author -->
+        <div class="mb-3">
+            <label for="authour" class="form-label">Author</label>
+            <input type="text" value="{{ book.authour }}" class="form-control" id="authour" name="authour" required="">
+        </div>
+
+        <!-- Genre -->
+        <div class="mb-3">
+            <label for="genre" class="form-label">Genre</label>
+            <input type="text" value="{{ book.genre }}" class="form-control" id="genre" name="genre" required="">
+        </div>
+
+        <!-- Price -->
+        <div class="mb-3">
+            <label for="price" class="form-label">Price (₹)</label>
+            <input type="number" value="{{ book.price }}" class="form-control" id="price" name="price" step="0.01" required="">
+        </div>
+
+        <!-- Publish Date -->
+        <div class="mb-3">
+            <label for="published_date" class="form-label">Publish Date</label>
+            <input type="date" value="{{ book.published_date }}" class="form-control" id="published_date" name="publish_date" required="">
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="4" required="">{{ book.description }}</textarea>
+        </div>
+
+        <!-- Image Upload -->
+        <!-- <div class="mb-3">
+            <label for="image" class="form-label">Book Image</label>
+            <input type="file" class="form-control" id="image" name="image">
+        </div> -->
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>

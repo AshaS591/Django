@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+    {% block content %}
+    <center>
+        <h2>{{ book.title }}</h2>
+        <p><b>Author: </b> {{ book.authour }}</p>
+        <p><b>Description: </b> {{ book.description }}</p>
+        <p><b>Genre: </b> {{ book.genre }}</p>
+        <p><b>Publish Date: </b> {{ book.published_date }}</p>
+        <p><b>Price: </b> {{ book.price }}</p>
+    
+        <a href="{% url 'edit' book.id %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'delete' book.id %}" class="btn btn-danger">Delete</a>
+        <a href="{% url 'home' %}" class="btn btn-outline-dark">Back to Home</a>
+    </center>
+    {% endblock content %}

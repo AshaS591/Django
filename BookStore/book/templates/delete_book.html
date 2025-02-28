@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container mt-5" style="width: 50%;">
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p><strong>Are you sure, you want to delete book : {{ book.title }}</strong></p>
+        <input type="submit" class="btn btn-danger" value="Confirm">
+        <a href="{% url 'details' book.id %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock content %}
