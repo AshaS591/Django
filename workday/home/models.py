@@ -8,7 +8,6 @@ class Department(models.Model):
     def __str__(self):
         return self.dname
 
-
 class Employee(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -25,8 +24,9 @@ class Leaves(models.Model):
     type = models.CharField(max_length=100)
     from_date = models.DateField()
     to_date = models.DateField()
-    no_of_days = models.IntegerField(max_length=2)
+    no_of_days = models.IntegerField()
     approved = models.BooleanField(null=True)
     emp_id = models.OneToOneField(Employee,on_delete=models.CASCADE)
+
     def __str__(self):
         return self.type
