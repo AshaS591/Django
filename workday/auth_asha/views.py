@@ -49,6 +49,7 @@ def login_user(request):
             return redirect('home')
         else:
             context['error'] = 'Invalid credentials'
+            return redirect('signup')
 
     return render(request,'login.html',context)
 
