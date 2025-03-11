@@ -106,7 +106,7 @@ def apply_leave(request):
             to_date=to_date,
             no_of_days=no_days,
             approved=approve,
-            emp_id=employee[1]+employee[2]
+            emp_id=employee
         )
         return redirect('leave')
     
