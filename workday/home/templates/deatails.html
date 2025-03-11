@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+{% block content %}
+
+
+    <center><h1 style="color: navy;">Employee data</h1></center>
+    <div class="container">
+        <table border="" style="border: none;text-align: center;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Department</th>
+                <th>Position</th>
+                <th>Date Hired</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+
+        {% for employee in all_employees %}
+            <!-- <tr>td</tr> -->
+            <tr>
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.first_name }} {{ employee.last_name }}</td>
+            <td>{{ employee.email }}</td>
+            <td>{{ employee.phone }}</td>
+            <td>{{ employee.department }}</td>
+            <td>{{ employee.position }}</td>
+            <td>{{ employee.date_hired }}</td>
+            <td> 
+                <div style="display: flex;"><a href="{% url 'edit' employee.id  %}" class="btn btn-secondary">Edit</a>
+                <a href="{% url 'confirm' employee.id %}" class="btn-delete">Delete</a>
+                <a href="{% url 'apply' %}" class="btn btn-success">Leave</a></div>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="8">No employees found.</td>
+        </tr>
+        
+        {% endfor %}
+    </table>
+    </div>
+    
+
+{% endblock content %}

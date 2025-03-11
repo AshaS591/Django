@@ -1,0 +1,20 @@
+<h1> Sign Up </h1>
+{% if error %}
+    <p style="color: red;font-size: larger;">{{ error }}</p>
+{% endif %}
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="">Username :</label><br>
+    <input type="text" name="un" required><br>
+
+    <label for="">Email :</label><br>
+    <input type="email" name="em" required><br>
+
+    <label for="">Password :</label><br>
+    <input type="text" name="psw" required><br>
+
+    <label for="">Confirm Password:</label><br>
+    <input type="text" name="cpsw" required><br><br>
+
+    <input type="submit" value="Signup">
+</form>

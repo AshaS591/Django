@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div class="container">
+        <center style="padding-left: 28%;">
+            <h1>Are you sure?</h1>
+            <i>Do you really want to delete this record? This process cannot be undone.</i>
+            <br><br>
+            {% if employee %}
+    <form method="POST" action="{% url 'confirm' employee.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirm</button>
+        <a href="{% url 'detail' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% else %}
+    <p>Error: Employee not found.</p>
+    {% endif %}
+        </center>
+    </div>
+{% endblock content %}

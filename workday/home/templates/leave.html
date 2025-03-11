@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% block content %}
+<center><h1 style="color: navy;">Leave Details</h1></center>
+    <div class="container">
+        <table border="" style="border: none;text-align: center;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Employee Name</th>
+                <th>Type</th>
+                <th>From </th>
+                <th>To </th>
+                <th>No. of Days</th>
+                <th>Approved</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+
+        {% for leave in all_leaves %}
+            <!-- <tr>td</tr> -->
+            <tr>
+            <td>{{ leave.id }}</td>
+            <td>{{leave.emp_id}}</td>
+            <td>{{ leave.type }}</td>
+            <td>{{ leave.from_date }}</td>
+            <td>{{ leave.to_date }}</td>
+            <td>{{ leave.no_of_days}}</td>
+            <td>{{ leave.approved }}</td>
+            
+            <td> 
+                <div style="display: flex;"><a href="{% url 'edit' leave.id  %}" class="btn btn-secondary">Edit</a>
+                    <a href="" class="btn-delete">Delete</a></div>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="8">No leaves found.</td>
+        </tr>
+        
+        {% endfor %}
+    </table>
+    </div>
+
+{% endblock content %}
