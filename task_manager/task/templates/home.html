@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block content%}
+   
+<center>
+    <div>
+        <h2>Hello {{request.user.username }} </h2>
+        <a href="{% url 'logout' %}" class="btn btn-success">Logout</a>
+    </div><br><br>
+    {% include 'form.html' %}
+    <div class="container">
+        {% for task in tasks%}
+    <div class="container1" style="align-items: center;">
+        <h3>{{task.tname}}</h3>
+    <p>{{task.tdesc}}</p>
+    
+    <div><a href="{% url 'update' task.id %}" class="btn btn-success">Edit</a>
+       <a href="{% url 'delete' task.id %}" class="btn btn-success" >Delete</a></div>
+    </div>
+    {% endfor %}
+    </div>
+</center>
+{% endblock content%}
